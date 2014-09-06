@@ -20,10 +20,14 @@
 
         $ vim +PluginInstall +qall
 
-5. Compile YCM
+5. Compile YCM:
 
         $ cd ~/.vim/bundle/YouCompleteMe
         $ ./install.sh
+
+6. Install the tern server:
+        $ cd  ~/.vim/bundle/tern_for_vim
+        $ npm install
 
 [Vundle]:http://github.com/gmarik/Vundle.vim
 [Pathogen]:https://github.com/tpope/vim-pathogen
