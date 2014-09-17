@@ -18,6 +18,10 @@ Plugin 'marijnh/tern_for_vim'
 
 Plugin 'kchmck/vim-coffee-script'
 
+Bundle "pangloss/vim-javascript"
+
+Bundle 'derekwyatt/vim-scala'
+
 " Supported plugins formats
 " - plugin on GitHub repo
 " Plugin 'tpope/vim-fugitive'
