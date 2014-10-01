@@ -22,6 +22,10 @@ Bundle "pangloss/vim-javascript"
 
 Bundle 'derekwyatt/vim-scala'
 
+Plugin 'guns/vim-clojure-static'
+
+Plugin 'kien/rainbow_parentheses.vim'
+
 " Supported plugins formats
 " - plugin on GitHub repo
 " Plugin 'tpope/vim-fugitive'
@@ -68,3 +72,9 @@ autocmd BufWritePre * :%s/\s\+$//e
 call pathogen#infect()
 syntax enable
 filetype plugin indent on
+
+" Rainbow parentheses
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
