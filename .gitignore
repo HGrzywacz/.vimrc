@@ -2,5 +2,8 @@
 !vimrc
 !.vimrc
 !.gitignore
-
+!colors/
+colors/*
+!colors/twilight.vim
+!colors/distinguished.vim
 

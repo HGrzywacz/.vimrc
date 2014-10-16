@@ -18,13 +18,14 @@ Plugin 'marijnh/tern_for_vim'
 
 Plugin 'kchmck/vim-coffee-script'
 
-Bundle "pangloss/vim-javascript"
+Bundle 'pangloss/vim-javascript'
 
 Bundle 'derekwyatt/vim-scala'
 
 Plugin 'guns/vim-clojure-static'
 
 Plugin 'kien/rainbow_parentheses.vim'
+
 
 " Supported plugins formats
 " - plugin on GitHub repo
@@ -78,3 +79,5 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
+colorscheme twilight
