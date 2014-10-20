@@ -81,3 +81,21 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
 colorscheme twilight
+
+" My own jslinter
+fun! JSLint() "{{{
+
+  let l:winview = winsaveview()
+
+  %s/\(if\|for\|while\)(/\1 (/ge              "space after if,for,while
+  %s/else{/else {/ge                          "space after else
+  %s/\(,\|:\)\(\w\)/\1 \2/ge                  "space after ,|:
+  %s/){/) {/ge                                "space between ) {
+  %s/function(/function (/ge                  "space after function
+  " %s/\(\w\|d\|\'\|\"\)\(+\|-\|=\)/\1 \2/ge     "space before operator +|-|=|==
+
+  call winrestview(l:winview)
+
+endfunction "}}}
+
+command! JSLint call JSLint()
