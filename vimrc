@@ -89,6 +89,7 @@ fun! JSLint() "{{{
 
   %s/\(if\|for\|while\)(/\1 (/ge              "space after if,for,while
   %s/else{/else {/ge                          "space after else
+  %s/}else/} else/ge                          "space before else
   %s/\(,\|:\)\(\w\)/\1 \2/ge                  "space after ,|:
   %s/){/) {/ge                                "space between ) {
   %s/function(/function (/ge                  "space after function
