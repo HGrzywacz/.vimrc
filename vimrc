@@ -26,6 +26,11 @@ Plugin 'guns/vim-clojure-static'
 
 Plugin 'kien/rainbow_parentheses.vim'
 
+Plugin 'nice/sweater'
+
+Plugin 'tpope/vim-commentary'
+
+Plugin 'tpope/vim-endwise'
 
 " Supported plugins formats
 " - plugin on GitHub repo
@@ -53,6 +58,17 @@ nnoremap <silent> <C-Down> <c-w>j
 
 map <silent> <S-Up> <C-y>
 map <silent> <S-Down> <C-e>
+
+" mapleader
+" <Space>w to save
+" <Space><Space> to enter visual line mode
+let mapleader = "\<Space>"
+nnoremap <Leader>w :w<CR>
+nmap <Leader><Leader> V
+
+" <Enter>, <Backspace> - end, beginning of the file
+nnoremap <CR> G
+nnoremap <BS> gg
 
 set cindent
 set smartindent
