@@ -66,10 +66,6 @@ let mapleader = "\<Space>"
 nnoremap <Leader>w :w<CR>
 nmap <Leader><Leader> V
 
-" <Enter>, <Backspace> - end, beginning of the file
-nnoremap <CR> G
-nnoremap <BS> gg
-
 set cindent
 set smartindent
 set autoindent
