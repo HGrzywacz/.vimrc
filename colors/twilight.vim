@@ -105,7 +105,8 @@ exe 'hi Type           guifg='.s:yellow            .' guibg='.s:darkgrey        
 "Tabs, trailing spaces, etc (lcs)
 "hi SpecialKey guifg=#808080 guibg=#343434
 
-"hi TooLong guibg=#ff0000 guifg=#f8f8f8
+exe 'hi TooLong guifg='.s:red
+match TooLong /\%111v.\+/
 
 hi Search guifg=#606000 guibg=#c0c000 gui=bold
 
