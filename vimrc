@@ -32,6 +32,10 @@ Plugin 'tpope/vim-commentary'
 
 Plugin 'tpope/vim-endwise'
 
+Plugin 'tpope/vim-fugitive'
+
+Plugin 'terryma/vim-multiple-cursors'
+
 " Supported plugins formats
 " - plugin on GitHub repo
 " Plugin 'tpope/vim-fugitive'
@@ -92,6 +96,9 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
+" Turn off Scratch, Preview window of autocompletion
+set completeopt-=preview
+
 colorscheme twilight
 
 " My own jslinter
@@ -112,3 +119,4 @@ fun! JSLint() "{{{
 endfunction "}}}
 
 command! JSLint call JSLint()
+
