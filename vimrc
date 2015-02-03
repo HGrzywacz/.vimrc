@@ -118,6 +118,25 @@ function! MyLastWindow()
   endif
 endfunction
 
+" find .coffeelintrc.json file
+fun! FindCoffeeLintConfig()"
+  let currentDir = expand("%:p:h") . "/"
+  let filename = ".coffeelintrc.json"
+
+  let path = currentDir . filename
+
+  while !filereadable(expand(path))
+    if (len(currentDir) == 0)
+      return ''
+    endif
+
+    let currentDir = "/" . join(split(currentDir, "/")[0:-2], "/") . "/"
+    let path = currentDir . filename
+  endwhile
+
+  return "-f " . path
+endfunction
+
 " My own jslinter
 fun! JSLint() "{{{
 
@@ -135,15 +154,20 @@ fun! JSLint() "{{{
 
 endfunction "}}}
 
+command! JSLint call JSLint()
+
+let g:coffee_lint_options = ''
+
 " CoffeeScript linter
 fun! CoffeeLint() "{{{
+
+  let g:coffee_lint_options = FindCoffeeLintConfig()
 
   CoffeeLint
   cw
 
 endfunction "}}}
 
-command! JSLint call JSLint()
 command! CSLint call CoffeeLint()
 command! CL call CoffeeLint()
 
