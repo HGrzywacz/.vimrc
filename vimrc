@@ -60,6 +60,11 @@ nnoremap <silent> <C-Left> <c-w>h
 nnoremap <silent> <C-Up> <c-w>k
 nnoremap <silent> <C-Down> <c-w>j
 
+nnoremap <silent> <C-l> <c-w>l
+nnoremap <silent> <C-h> <c-w>h
+nnoremap <silent> <C-k> <c-w>k
+nnoremap <silent> <C-j> <c-w>j
+
 map <silent> <S-Up> <C-y>
 map <silent> <S-Down> <C-e>
 
@@ -101,6 +106,18 @@ set completeopt-=preview
 
 colorscheme twilight
 
+" Automatically close vim if quickfix window is the last
+au BufEnter * call MyLastWindow()
+function! MyLastWindow()
+  " if the window is quickfix go on
+  if &buftype=="quickfix"
+    " if this window is last on screen quit without warning
+    if winbufnr(2) == -1
+      quit
+    endif
+  endif
+endfunction
+
 " My own jslinter
 fun! JSLint() "{{{
 
@@ -118,5 +135,15 @@ fun! JSLint() "{{{
 
 endfunction "}}}
 
+" CoffeeScript linter
+fun! CoffeeLint() "{{{
+
+  CoffeeLint
+  cw
+
+endfunction "}}}
+
 command! JSLint call JSLint()
+command! CSLint call CoffeeLint()
+command! CL call CoffeeLint()
 
