@@ -26,8 +26,13 @@
         $ ./install.sh
 
 6. Install the tern server:
+
         $ cd  ~/.vim/bundle/tern_for_vim
         $ npm install
+
+7. [optional] Install CoffeeLint
+
+        $ npm install -g coffeelint
 
 [Vundle]:http://github.com/gmarik/Vundle.vim
 [Pathogen]:https://github.com/tpope/vim-pathogen
