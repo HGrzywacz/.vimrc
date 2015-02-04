@@ -164,7 +164,13 @@ fun! CoffeeLint() "{{{
   let g:coffee_lint_options = FindCoffeeLintConfig()
 
   CoffeeLint
-  cw
+
+  if (len(getqflist()) == 0)
+    echo "CoffeeLint: no warnings"
+    cclose
+  else
+    cw
+  endif
 
 endfunction "}}}
 
