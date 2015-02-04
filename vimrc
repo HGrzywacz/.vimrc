@@ -177,3 +177,5 @@ endfunction "}}}
 command! CSLint call CoffeeLint()
 command! CL call CoffeeLint()
 
+" CoffeeCompile
+command! -range=% CC <line1>,<line2> CoffeeCompile vert

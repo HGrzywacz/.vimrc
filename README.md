@@ -30,7 +30,7 @@
         $ cd  ~/.vim/bundle/tern_for_vim
         $ npm install
 
-7. [optional] Install [CoffeeLint]
+7. [optional] Install [CoffeeLint]:
 
         $ npm install -g coffeelint
 
