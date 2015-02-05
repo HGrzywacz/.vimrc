@@ -191,4 +191,13 @@ command! CL call CoffeeLint()
 command! -range=% CC <line1>,<line2> CoffeeCompile
 command! -range=% CV <line1>,<line2> CoffeeCompile vert
 
+" emmet-vim options
 let g:user_emmet_settings = {'indentation' : '  '}
+
+" autoresize tab
+function Autoresize()
+  :exec "resize " . line("$")
+  :call feedkeys("zb")
+endfunction
+
+command! AR call Autoresize()
