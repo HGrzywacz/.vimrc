@@ -36,6 +36,8 @@ Plugin 'tpope/vim-fugitive'
 
 Plugin 'terryma/vim-multiple-cursors'
 
+Plugin 'mattn/emmet-vim'
+
 " Supported plugins formats
 " - plugin on GitHub repo
 " Plugin 'tpope/vim-fugitive'
@@ -178,4 +180,7 @@ command! CSLint call CoffeeLint()
 command! CL call CoffeeLint()
 
 " CoffeeCompile
-command! -range=% CC <line1>,<line2> CoffeeCompile vert
+command! -range=% CC <line1>,<line2> CoffeeCompile
+command! -range=% CV <line1>,<line2> CoffeeCompile vert
+
+let g:user_emmet_settings = {'indentation' : '  '}
