@@ -91,7 +91,15 @@ filetype indent on
 highlight RedundantSpaces ctermbg=4 guibg=red
 match RedundantSpaces /\s\+\%#\@!$\| \+\ze\t/
 
-autocmd BufWritePre * :%s/\s\+$//e
+" Remove trailing whitespaces and empty lines
+" on the end of the file
+function! RemoveEmptyAndWhite()
+  :%s/\s\+$//e
+  :%s#\($\n\s*\)\+\%$##e
+endfunction
+
+command! Clean call RemoveEmptyAndWhite()
+autocmd BufWritePre * call RemoveEmptyAndWhite()
 
 call pathogen#infect()
 syntax enable
