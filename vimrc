@@ -195,7 +195,7 @@ command! -range=% CV <line1>,<line2> CoffeeCompile vert
 let g:user_emmet_settings = {'indentation' : '  '}
 
 " autoresize tab
-function Autoresize()
+function! Autoresize()
   :exec "resize " . line("$")
   :call feedkeys("zb")
 endfunction

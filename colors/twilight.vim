@@ -11,6 +11,7 @@ let colors_name = "twilight"
 
 let s:grey_blue = '#8a9597'
 let s:light_grey_blue = '#a0a8b0'
+let s:lighter_grey = '#e5e5e5'
 let s:dark_grey_blue = '#34383c'
 let s:mid_grey_blue = '#8e9399'
 let s:beige = '#ceb67f'
@@ -72,6 +73,7 @@ exe 'hi Constant       guifg='.s:red               .' guibg='.s:darkgrey        
 exe 'hi String         guifg='.s:green             .' guibg='.s:darkgrey        .' gui=none'
 exe 'hi Special        guifg='.s:lightgreen        .' guibg='.s:darkgrey        .' gui=none'
 
+exe 'hi Label          guifg='.s:lighter_grey      .' guibg='.s:darkgrey        .' gui=none'
 exe 'hi Identifier     guifg='.s:grey_blue         .' guibg='.s:darkgrey        .' gui=none'
 exe 'hi Statement      guifg='.s:beige             .' guibg='.s:darkgrey        .' gui=none'
 exe 'hi Conditional    guifg='.s:beige             .' guibg='.s:darkgrey        .' gui=none'
@@ -112,4 +114,3 @@ hi Search guifg=#606000 guibg=#c0c000 gui=bold
 
 hi Directory guifg=#dad085 gui=NONE
 hi Error guibg=#602020
-
