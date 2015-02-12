@@ -38,6 +38,8 @@ Plugin 'terryma/vim-multiple-cursors'
 
 Plugin 'mattn/emmet-vim'
 
+Plugin 'ervandew/supertab'
+
 " Supported plugins formats
 " - plugin on GitHub repo
 " Plugin 'tpope/vim-fugitive'
