@@ -186,12 +186,17 @@ fun! CoffeeLint() "{{{
 
 endfunction "}}}
 
+" CoffeeLint
 command! CSLint call CoffeeLint()
 command! CL call CoffeeLint()
 
 " CoffeeCompile
 command! -range=% CC <line1>,<line2> CoffeeCompile
 command! -range=% CV <line1>,<line2> CoffeeCompile vert
+
+" CoffeeWatch
+command! CW CoffeeWatch
+command! CWV CoffeeWatch vert
 
 " emmet-vim options
 let g:user_emmet_settings = {'indentation' : '  '}
