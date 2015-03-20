@@ -170,6 +170,20 @@ endfunction "}}}
 
 command! JSLint call JSLint()
 
+
+
+" Tidy - tidy html and reload file
+fun! Tidy() "{{{
+
+  execute "! tidy -mi -xml -config ~/.vimrc/tidyrc " . bufname("%")
+  e
+
+endfunction "}}}
+
+command! Tidy call Tidy()
+
+
+
 let g:coffee_lint_options = ''
 
 " CoffeeScript linter

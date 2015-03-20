@@ -3,6 +3,8 @@
 !.vimrc
 !.gitignore
 
+!tidyrc
+
 !colors/
 colors/*
 !colors/twilight.vim

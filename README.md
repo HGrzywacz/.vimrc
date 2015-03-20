@@ -30,10 +30,15 @@
         $ cd  ~/.vim/bundle/tern_for_vim
         $ npm install
 
-7. [optional] Install [CoffeeLint]:
+7. Install [tidy]:
+
+        $ sudo apt-get install tidy
+
+8. [optional] Install [CoffeeLint]:
 
         $ npm install -g coffeelint
 
 [Vundle]:http://github.com/gmarik/Vundle.vim
 [Pathogen]:https://github.com/tpope/vim-pathogen
 [CoffeeLint]:http://www.coffeelint.org/
+[tidy]:http://tidy.sourceforge.net/
