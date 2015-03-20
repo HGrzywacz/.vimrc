@@ -40,6 +40,8 @@ Plugin 'mattn/emmet-vim'
 
 Plugin 'ervandew/supertab'
 
+Plugin 'bkad/CamelCaseMotion'
+
 " Supported plugins formats
 " - plugin on GitHub repo
 " Plugin 'tpope/vim-fugitive'
@@ -193,6 +195,9 @@ command! CL call CoffeeLint()
 " CoffeeCompile
 command! -range=% CC <line1>,<line2> CoffeeCompile
 command! -range=% CV <line1>,<line2> CoffeeCompile vert
+
+" Turn off 'intelligent'/'automatic' intendation
+command! Noauto setl noai nocin nosi inde=
 
 " CoffeeWatch
 command! CW CoffeeWatch
