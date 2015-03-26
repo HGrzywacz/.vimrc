@@ -95,6 +95,22 @@ filetype indent on
 highlight RedundantSpaces ctermbg=4 guibg=red
 match RedundantSpaces /\s\+\%#\@!$\| \+\ze\t/
 
+" From: http://nathan-long.com/blog/vim-a-few-of-my-favorite-things/
+" Bubble single lines
+nmap <C-Up> ddkP
+nmap <C-Down> ddp
+" Bubble multiple lines
+vmap <C-Up> xkP`[V`]
+vmap <C-Down> xp`[V`]
+
+" Persistent undo
+if exists("&undodir")
+    set undofile          "Persistent undo! Pure money.
+    let &undodir=&directory
+    set undolevels=500
+    set undoreload=500
+endif
+
 " Remove trailing whitespaces and empty lines
 " on the end of the file
 function! RemoveEmptyAndWhite()
