@@ -134,6 +134,7 @@ au Syntax * RainbowParenthesesLoadBraces
 " Turn off Scratch, Preview window of autocompletion
 set completeopt-=preview
 
+set t_Co=256
 colorscheme twilight
 
 " Automatically close vim if quickfix window is the last
@@ -185,61 +186,3 @@ fun! JSLint() "{{{
 endfunction "}}}
 
 command! JSLint call JSLint()
-
-
-
-" Tidy - tidy html and reload file
-fun! Tidy() "{{{
-
-  execute "! tidy -mi -xml -config ~/.vimrc/tidyrc " . bufname("%")
-  e
-
-endfunction "}}}
-
-command! Tidy call Tidy()
-
-
-
-let g:coffee_lint_options = ''
-
-" CoffeeScript linter
-fun! CoffeeLint() "{{{
-
-  let g:coffee_lint_options = FindCoffeeLintConfig()
-
-  CoffeeLint
-
-  if (len(getqflist()) == 0)
-    echo "CoffeeLint: no warnings"
-    cclose
-  else
-    cw
-  endif
-
-endfunction "}}}
-
-" CoffeeLint
-command! CSLint call CoffeeLint()
-command! CL call CoffeeLint()
-
-" CoffeeCompile
-command! -range=% CC <line1>,<line2> CoffeeCompile
-command! -range=% CV <line1>,<line2> CoffeeCompile vert
-
-" Turn off 'intelligent'/'automatic' intendation
-command! Noauto setl noai nocin nosi inde=
-
-" CoffeeWatch
-command! CW CoffeeWatch
-command! CWV CoffeeWatch vert
-
-" emmet-vim options
-let g:user_emmet_settings = {'indentation' : '  '}
-
-" autoresize tab
-function! Autoresize()
-  :exec "resize " . line("$")
-  :call feedkeys("zb")
-endfunction
-
-command! AR call Autoresize()
