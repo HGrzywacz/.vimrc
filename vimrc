@@ -134,6 +134,7 @@ au Syntax * RainbowParenthesesLoadBraces
 " Turn off Scratch, Preview window of autocompletion
 set completeopt-=preview
 
+set t_Co=256
 colorscheme twilight
 
 " Automatically close vim if quickfix window is the last
