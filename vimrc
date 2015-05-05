@@ -42,6 +42,12 @@ Plugin 'ervandew/supertab'
 
 Plugin 'bkad/CamelCaseMotion'
 
+Plugin 'Yggdroot/indentLine'
+
+Plugin 'junegunn/goyo.vim'
+
+Plugin 'junegunn/vim-peekaboo'
+
 " Supported plugins formats
 " - plugin on GitHub repo
 " Plugin 'tpope/vim-fugitive'
@@ -244,3 +250,20 @@ function! Autoresize()
 endfunction
 
 command! AR call Autoresize()
+
+" Yggdroot/indentLine
+let g:indentLine_enabled = 0
+
+" 'junegunn/vim-peekaboo'
+" Default peekaboo window
+let g:peekaboo_window = 'vertical botright 30new'
+
+" Delay opening of peekaboo window (in ms. default: 0)
+let g:peekaboo_delay = 800
+
+
+" 'junegunn/goyo.vim'
+let g:goyo_width = 110
+let g:goyo_margin_top = -1
+let g:goyo_margin_bottom = -1
+let g:goyo_linenr = 0
