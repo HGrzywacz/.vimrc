@@ -48,6 +48,14 @@ Plugin 'junegunn/goyo.vim'
 
 Plugin 'junegunn/vim-peekaboo'
 
+Plugin 'chrisbra/unicode.vim'
+
+Plugin 'rking/ag.vim'
+
+Plugin 'kien/ctrlp.vim'
+
+Plugin 'altercation/vim-colors-solarized'
+
 " Supported plugins formats
 " - plugin on GitHub repo
 " Plugin 'tpope/vim-fugitive'
@@ -142,6 +150,10 @@ set completeopt-=preview
 
 set t_Co=256
 colorscheme twilight
+" let g:solarized_termcolors=256
+" syntax enable
+" set background=dark
+" colorscheme solarized
 
 " Automatically close vim if quickfix window is the last
 au BufEnter * call MyLastWindow()
@@ -267,3 +279,7 @@ let g:goyo_width = 110
 let g:goyo_margin_top = -1
 let g:goyo_margin_bottom = -1
 let g:goyo_linenr = 0
+
+" CtrlP
+" keep cache after exiting vima
+let g:ctrlp_clear_cache_on_exit = 1
