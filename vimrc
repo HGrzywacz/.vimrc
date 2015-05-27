@@ -56,6 +56,10 @@ Plugin 'kien/ctrlp.vim'
 
 Plugin 'altercation/vim-colors-solarized'
 
+Plugin 'sjl/gundo.vim'
+
+Plugin 'kshenoy/vim-signature'
+
 " Supported plugins formats
 " - plugin on GitHub repo
 " Plugin 'tpope/vim-fugitive'
@@ -282,4 +286,11 @@ let g:goyo_linenr = 0
 
 " CtrlP
 " keep cache after exiting vima
-let g:ctrlp_clear_cache_on_exit = 1
+let g:ctrlp_clear_cache_on_exit = 0
+
+" Gundo
+nnoremap <F5> :GundoToggle<CR>
+
+" smart (case sensitive/insensitive) search
+set smartcase
+set ignorecase

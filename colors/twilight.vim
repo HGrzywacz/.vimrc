@@ -60,9 +60,9 @@ exe 'hi StatusLine     guifg='.s:white             .' guibg='.s:grey            
 exe 'hi StatusLineNC   guifg='.s:lightgrey         .' guibg='.s:grey            .' gui=italic,underline'
 exe 'hi VertSplit      guifg='.s:grey              .' guibg='.s:grey            .' gui=none'
 
-exe 'hi Folded         guifg='.s:grey_blue         .' guibg='.s:dark_grey_blue  .' gui=none'
-exe 'hi FoldColumn     guifg='.s:grey_blue         .' guibg='.s:dark_grey_blue  .' gui=none'
-exe 'hi SignColumn     guifg='.s:grey_blue         .' guibg='.s:dark_grey_blue  .' gui=none'
+exe 'hi Folded         guifg='.s:grey_blue         .' guibg='.s:darkgrey  .' gui=none'
+exe 'hi FoldColumn     guifg='.s:grey_blue         .' guibg='.s:darkgrey  .' gui=none'
+exe 'hi SignColumn     guifg='.s:grey_blue         .' guibg='.s:darkgrey  .' gui=none'
 
 exe 'hi Comment        guifg='.s:mid_grey_blue     .' guibg='.s:darkgrey        .' gui=italic'
 exe 'hi TODO           guifg='.s:grey_blue         .' guibg='.s:darkgrey        .' gui=italic,bold'
