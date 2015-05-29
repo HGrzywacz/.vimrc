@@ -290,7 +290,3 @@ let g:ctrlp_clear_cache_on_exit = 0
 
 " Gundo
 nnoremap <F5> :GundoToggle<CR>
-
-" smart (case sensitive/insensitive) search
-set smartcase
-set ignorecase
