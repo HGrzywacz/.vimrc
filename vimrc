@@ -60,6 +60,8 @@ Plugin 'sjl/gundo.vim'
 
 Plugin 'kshenoy/vim-signature'
 
+Plugin 'NLKNguyen/papercolor-theme'
+
 " Supported plugins formats
 " - plugin on GitHub repo
 " Plugin 'tpope/vim-fugitive'
@@ -153,7 +155,8 @@ au Syntax * RainbowParenthesesLoadBraces
 set completeopt-=preview
 
 set t_Co=256
-colorscheme twilight
+" colorscheme twilight
+colorscheme PaperColor
 " let g:solarized_termcolors=256
 " syntax enable
 " set background=dark
