@@ -62,6 +62,10 @@ Plugin 'kshenoy/vim-signature'
 
 Plugin 'NLKNguyen/papercolor-theme'
 
+Plugin 'raichoo/haskell-vim'
+
+Plugin 'bling/vim-airline'
+
 " Supported plugins formats
 " - plugin on GitHub repo
 " Plugin 'tpope/vim-fugitive'
@@ -293,3 +297,8 @@ let g:ctrlp_clear_cache_on_exit = 0
 
 " Gundo
 nnoremap <F5> :GundoToggle<CR>
+
+" airline theme
+let g:airline_theme='papercolor'
+" always show airline
+set laststatus=2
