@@ -1,5 +1,6 @@
 " documentation: https://github.com/gmarik/Vundle.vim#about
 " to install run $ vim +PluginInstall +qall
+" to update all plugins run $ vim +PluginUpdate +qall
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -24,7 +25,7 @@ Bundle 'derekwyatt/vim-scala'
 
 Plugin 'guns/vim-clojure-static'
 
-Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'junegunn/rainbow_parentheses.vim'
 
 Plugin 'nice/sweater'
 
@@ -52,7 +53,7 @@ Plugin 'chrisbra/unicode.vim'
 
 Plugin 'rking/ag.vim'
 
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
 
 Plugin 'altercation/vim-colors-solarized'
 
@@ -65,6 +66,8 @@ Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'raichoo/haskell-vim'
 
 Plugin 'bling/vim-airline'
+
+Plugin 'walm/jshint.vim'
 
 " Supported plugins formats
 " - plugin on GitHub repo
@@ -150,10 +153,10 @@ syntax enable
 filetype plugin indent on
 
 " Rainbow parentheses
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+au VimEnter * RainbowParentheses
+" au Syntax * RainbowParenthesesLoadRound
+" au Syntax * RainbowParenthesesLoadSquare
+" au Syntax * RainbowParenthesesLoadBraces
 
 " Turn off Scratch, Preview window of autocompletion
 set completeopt-=preview
