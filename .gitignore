@@ -13,3 +13,5 @@ colors/*
 !syntax/
 syntax/*
 !syntax/coffee.vim
+
+!setup.sh

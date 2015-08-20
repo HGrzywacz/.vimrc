@@ -7,13 +7,15 @@
         $ git clone https://github.com/HGrzywacz/.vimrc.git ~/.vim
         $ ln -s ~/.vim/vimrc ~/.vimrc
 
+2. Run `~/.vimrc/setup.sh` or:
+
 2. Set up [Vundle]:
 
-        $ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bndule/Vundle.vim
+        $ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 3. Set up [Pathogen]:
 
-        $ mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+        $ mkdir -p ~/.vim/autoload ~/.vim/bundle
         $ curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
 4. Install plugins:
