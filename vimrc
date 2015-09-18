@@ -69,6 +69,8 @@ Plugin 'bling/vim-airline'
 
 Plugin 'walm/jshint.vim'
 
+Plugin 'terryma/vim-expand-region'
+
 " Supported plugins formats
 " - plugin on GitHub repo
 " Plugin 'tpope/vim-fugitive'
@@ -107,6 +109,8 @@ map <silent> <S-Down> <C-e>
 let mapleader = "\<Space>"
 nnoremap <Leader>w :w<CR>
 nmap <Leader><Leader> V
+
+nmap rr yygccp
 
 set cindent
 set smartindent
@@ -294,9 +298,20 @@ let g:goyo_margin_top = -1
 let g:goyo_margin_bottom = -1
 let g:goyo_linenr = 0
 
+" 'terryma/vim-expand-region'
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+
 " CtrlP
 " keep cache after exiting vima
 let g:ctrlp_clear_cache_on_exit = 0
+
+" ignore files in .gitignore
+" via: http://stackoverflow.com/a/26729140
+let g:ctrlp_user_command = [
+    \ '.git', 'cd %s && git ls-files . -co --exclude-standard',
+    \ 'find %s -type f'
+    \ ]
 
 " Gundo
 nnoremap <F5> :GundoToggle<CR>
