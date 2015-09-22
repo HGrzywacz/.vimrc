@@ -320,3 +320,7 @@ nnoremap <F5> :GundoToggle<CR>
 let g:airline_theme='papercolor'
 " always show airline
 set laststatus=2
+
+" Copy default register @" to @k and save old value of @k in @j
+" via: http://vim.wikia.com/wiki/Comfortable_handling_of_registers
+nnoremap <silent> <Leader>s :let @j=@k \| let @k=@"<CR>
