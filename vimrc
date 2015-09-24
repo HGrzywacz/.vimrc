@@ -71,6 +71,14 @@ Plugin 'walm/jshint.vim'
 
 Plugin 'terryma/vim-expand-region'
 
+Plugin 'kana/vim-textobj-user'
+
+Plugin 'glts/vim-textobj-comment'
+
+Plugin 'glts/vim-textobj-indblock'
+
+Plugin 'kana/vim-textobj-indent'
+
 " Supported plugins formats
 " - plugin on GitHub repo
 " Plugin 'tpope/vim-fugitive'
