@@ -79,6 +79,8 @@ Plugin 'glts/vim-textobj-indblock'
 
 Plugin 'kana/vim-textobj-indent'
 
+Bundle 'jeetsukumaran/vim-indentwise'
+
 " Supported plugins formats
 " - plugin on GitHub repo
 " Plugin 'tpope/vim-fugitive'
@@ -332,3 +334,7 @@ set laststatus=2
 " Copy default register @" to @k and save old value of @k in @j
 " via: http://vim.wikia.com/wiki/Comfortable_handling_of_registers
 nnoremap <silent> <Leader>s :let @j=@k \| let @k=@"<CR>
+
+" 'jeetsukumaran/vim-indentwise' mappings for coffeScript
+autocmd FileType coffee map <buffer> { <Plug>(IndentWisePreviousLesserIndent)
+autocmd FileType coffee map <buffer> } <Plug>(IndentWiseNextEqualIndent)
