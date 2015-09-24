@@ -341,5 +341,19 @@ autocmd FileType coffee map <buffer> } <Plug>(IndentWiseNextEqualIndent)
 
 " turn on relative numbering
 " http://jeffkreeftmeijer.com/2013/vims-new-hybrid-line-number-mode/
-set number
-set relativenumber
+" http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set norelativenumber
+  else
+    set relativenumber
+  endif
+
+  if(&number == 1)
+    set nonumber
+  else
+    set number
+  endif
+endfunc
+
+nnoremap <C-m> :call NumberToggle()<cr>
