@@ -338,3 +338,8 @@ nnoremap <silent> <Leader>s :let @j=@k \| let @k=@"<CR>
 " 'jeetsukumaran/vim-indentwise' mappings for coffeScript
 autocmd FileType coffee map <buffer> { <Plug>(IndentWisePreviousLesserIndent)
 autocmd FileType coffee map <buffer> } <Plug>(IndentWiseNextEqualIndent)
+
+" turn on relative numbering
+" http://jeffkreeftmeijer.com/2013/vims-new-hybrid-line-number-mode/
+set number
+set relativenumber
