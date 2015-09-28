@@ -1,0 +1,44 @@
+Custom shortcuts:
+-----------------
+  Easy moving between splits:
+    C-Right, C-l      - move to split on the right
+    C-Left, C-h       - move to split on the left
+    C-Down, C-j       - move down
+    C-Up, C-k         - move up
+
+  S-Up, S-Down        - move like in 'less'
+
+  Space w             - save file (:w)
+  Space Space         - enter line visual mode (V)
+
+  Space s             - copy defauld register to k, copy k to j beforehand
+
+  rr                  - copy and comment line
+
+  :Clean              - remove unnecessary empty lines and whitespaces
+
+  :CC, :CV            - compile CoffeeScript to horizontal/vertical split
+
+  Linters:
+    :JSLint, :CoffeLint, :CL
+
+  :AR                 - autoresize horizontal split to its size
+
+  C-N                 - line numbering
+
+
+vim-expand-region
+-----------------
+  v                   - (VISUAL mode) expand region
+  <C-v>               - (VISUAL mode) shrink region
+
+
+chrisbra/unicode.vim
+--------------------
+  :UnicodeName        - identify character under cursor
+  :SearchUnicode <a>  - search unicode table
+  :UnicodeTable
+  :Digraphs <a>       - search digraphs
+  <F4>                - transform two normal characters into digraph
+
+  C-x C-g             - (INSERT mode) trigger digraph completion

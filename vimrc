@@ -356,4 +356,26 @@ function! NumberToggle()
   endif
 endfunc
 
-nnoremap <C-m> :call NumberToggle()<cr>
+nnoremap <C-N> :call NumberToggle()<cr>
+
+function! OpenQuickReference()
+  " remember current setting for splitright
+  if (&splitright == 1)
+    let resetsplitleft = 0
+  else
+    let resetsplitleft = 1
+  endif
+
+  echo resetsplitleft
+
+  set splitright
+  vs|view ~/.vim/quickreference.txt
+  set ft=help
+
+  if (resetsplitleft == 1)
+    set nosplitright
+  endif
+endfunction
+
+command! QR call OpenQuickReference()
+command! H call OpenQuickReference()
