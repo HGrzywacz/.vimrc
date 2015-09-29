@@ -24,7 +24,12 @@ Custom shortcuts:
 
   :AR                 - autoresize horizontal split to its size
 
-  C-N                 - line numbering
+  :LN, C-N            - line numbering
+
+  Space z, zx         - scroll current line to 20% from the top of the window
+
+  C-y, S-Up           - scroll one line up relative to cursor
+  C-e, S-Down         - scroll one line down relative to cursor
 
 
 vim-expand-region

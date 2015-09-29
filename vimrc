@@ -357,6 +357,7 @@ function! NumberToggle()
 endfunc
 
 nnoremap <C-N> :call NumberToggle()<cr>
+command! LN call NumberToggle()
 
 function! OpenQuickReference()
   " remember current setting for splitright
@@ -379,3 +380,26 @@ endfunction
 
 command! QR call OpenQuickReference()
 command! H call OpenQuickReference()
+
+" via: http://stackoverflow.com/a/3102890
+" improved by me
+function! ScrollToPercent(percent)
+    let movelines= winheight(0) * (50-a:percent)/100
+    if movelines<0
+        let motion='j'
+        let rmotion='k'
+        let movelines=-movelines
+    elseif movelines>0
+        let motion='k'
+        let rmotion='j'
+    else
+        return 0
+    endif
+    if has('float') && type(movelines)==type(0.0)
+        let movelines=float2nr(movelines)
+    endif
+    execute 'normal! zt'.movelines.motion.'zt'.movelines.rmotion
+endfunction
+
+nnoremap zx :<C-u>call ScrollToPercent(25)<CR>
+nnoremap <Leader>z :<C-u>call ScrollToPercent(25)<CR>
