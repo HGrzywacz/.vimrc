@@ -81,6 +81,8 @@ Plugin 'kana/vim-textobj-indent'
 
 Bundle 'jeetsukumaran/vim-indentwise'
 
+Plugin 'tpope/vim-surround'
+
 " Supported plugins formats
 " - plugin on GitHub repo
 " Plugin 'tpope/vim-fugitive'

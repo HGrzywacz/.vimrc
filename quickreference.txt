@@ -31,6 +31,12 @@ Custom shortcuts:
   C-y, S-Up           - scroll one line up relative to cursor
   C-e, S-Down         - scroll one line down relative to cursor
 
+vim-surround
+------------------
+  cs'"                - change surround inside ' to "
+  ds"                 - delete surrounding "
+  cs'<q>              - change surrounding ' to <q></q>
+  csw'                - surround word with '
 
 vim-expand-region
 -----------------
