@@ -358,7 +358,7 @@ function! NumberToggle()
   endif
 endfunc
 
-nnoremap <C-N> :call NumberToggle()<cr>
+nnoremap <Leader>n :call NumberToggle()<cr>
 command! LN call NumberToggle()
 
 function! OpenQuickReference()
