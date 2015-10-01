@@ -341,6 +341,9 @@ nnoremap <silent> <Leader>s :let @j=@k \| let @k=@"<CR>
 autocmd FileType coffee map <buffer> { <Plug>(IndentWisePreviousLesserIndent)
 autocmd FileType coffee map <buffer> } <Plug>(IndentWiseNextEqualIndent)
 
+" vim-commentary comment string for SML
+autocmd FileType sml set commentstring=(*%s*)
+
 " turn on relative numbering
 " http://jeffkreeftmeijer.com/2013/vims-new-hybrid-line-number-mode/
 " http://jeffkreeftmeijer.com/2012/relative-line-numbers-in-vim-for-super-fast-movement/
