@@ -27,6 +27,7 @@ Plugin 'guns/vim-clojure-static'
 
 Plugin 'junegunn/rainbow_parentheses.vim'
 
+" color scheme
 Plugin 'nice/sweater'
 
 Plugin 'tpope/vim-commentary'
@@ -82,6 +83,8 @@ Plugin 'kana/vim-textobj-indent'
 Bundle 'jeetsukumaran/vim-indentwise'
 
 Plugin 'tpope/vim-surround'
+
+Plugin 'airblade/vim-gitgutter'
 
 " Supported plugins formats
 " - plugin on GitHub repo
@@ -408,3 +411,7 @@ endfunction
 
 nnoremap zx :<C-u>call ScrollToPercent(25)<CR>
 nnoremap <Leader>z :<C-u>call ScrollToPercent(25)<CR>
+
+" disable gitgutter by default
+let g:gitgutter_enabled = 0
+nnoremap <Leader>g :GitGutterToggle<CR>
