@@ -53,3 +53,18 @@ chrisbra/unicode.vim
   <F4>                - transform two normal characters into digraph
 
   C-x C-g             - (INSERT mode) trigger digraph completion
+
+Tabs:
+--------------------
+
+  :tabedit, tabe
+  :tabclose, tabc     - close current tab
+  :tabclose {i}       - close i-th tab
+  :tabonly            - close all other tabs
+
+  C-w Shift-t         - move split to new tab
+
+  gt, gT              - next tab, previous tab
+  C-S-up, C-S-down
+
+  {i}gt               - ith tab
