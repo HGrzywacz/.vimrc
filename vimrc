@@ -367,23 +367,12 @@ endfunc
 nnoremap <Leader>n :call NumberToggle()<cr>
 command! LN call NumberToggle()
 
+" Open new vertical splits on the right side
+set splitright
+
 function! OpenQuickReference()
-  " remember current setting for splitright
-  if (&splitright == 1)
-    let resetsplitleft = 0
-  else
-    let resetsplitleft = 1
-  endif
-
-  echo resetsplitleft
-
-  set splitright
   vs|view ~/.vim/quickreference.txt
   set ft=help
-
-  if (resetsplitleft == 1)
-    set nosplitright
-  endif
 endfunction
 
 command! QR call OpenQuickReference()
