@@ -86,6 +86,10 @@ Plugin 'tpope/vim-surround'
 
 Plugin 'airblade/vim-gitgutter'
 
+Plugin 'haya14busa/incsearch.vim'
+
+Plugin 'othree/html5.vim'
+
 " Supported plugins formats
 " - plugin on GitHub repo
 " Plugin 'tpope/vim-fugitive'
@@ -135,6 +139,9 @@ set tabstop=2
 set shiftwidth=2
 set cinkeys=0{,0},:,0#,!^F
 set ff=unix
+
+set ignorecase
+set smartcase
 
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 filetype indent on
@@ -404,3 +411,5 @@ nnoremap <Leader>z :<C-u>call ScrollToPercent(25)<CR>
 " disable gitgutter by default
 let g:gitgutter_enabled = 0
 nnoremap <Leader>g :GitGutterToggle<CR>
+
+let $PATH = $PATH . ':' . expand('~/.cabal/bin')
