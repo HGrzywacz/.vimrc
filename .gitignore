@@ -15,4 +15,8 @@ colors/*
 syntax/*
 !syntax/coffee.vim
 
+!indent/
+indent/*
+!indent/html.vim
+
 !setup.sh

@@ -413,3 +413,5 @@ let g:gitgutter_enabled = 0
 nnoremap <Leader>g :GitGutterToggle<CR>
 
 let $PATH = $PATH . ':' . expand('~/.cabal/bin')
+
+autocmd FileType html setlocal indentkeys-=*<Return>
