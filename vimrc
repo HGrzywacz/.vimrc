@@ -90,6 +90,10 @@ Plugin 'haya14busa/incsearch.vim'
 
 Plugin 'othree/html5.vim'
 
+Plugin 'wellle/targets.vim'
+
+Plugin 'rhysd/devdocs.vim'
+
 " Supported plugins formats
 " - plugin on GitHub repo
 " Plugin 'tpope/vim-fugitive'
