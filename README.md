@@ -9,9 +9,10 @@
 
 2. Run `~/.vimrc/setup.sh` or:
 
-2. Set up [Vundle]:
+2. Set up [vim-plug]:
 
-        $ git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+        $ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 3. Set up [Pathogen]:
 
@@ -40,7 +41,7 @@
 
         $ npm install -g coffeelint
 
-[Vundle]:http://github.com/gmarik/Vundle.vim
+[vim-plug]:https://github.com/junegunn/vim-plug
 [Pathogen]:https://github.com/tpope/vim-pathogen
 [CoffeeLint]:http://www.coffeelint.org/
 [tidy]:http://tidy.sourceforge.net/

@@ -36,7 +36,7 @@ vim-surround
   cs'"                - change surround inside ' to "
   ds"                 - delete surrounding "
   cs'<q>              - change surrounding ' to <q></q>
-  csw'                - surround word with '
+  ycsw'                - surround word with '
 
 vim-expand-region
 -----------------
@@ -68,3 +68,12 @@ Tabs:
   C-S-up, C-S-down
 
   {i}gt               - ith tab
+
+Folds:
+--------------------
+
+  zc                  - close fold
+  zo                  - open fold
+  za                  - toggle fold
+  zr, zR              - open one level, open all folds
+  zm, zM              - close one leve, close all folds
