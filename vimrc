@@ -41,6 +41,7 @@ Plug 'jeetsukumaran/vim-indentwise'
 Plug 'tpope/vim-surround'
 Plug 'terryma/vim-expand-region'
 Plug 'wellle/targets.vim'
+Plug 'scrooloose/nerdcommenter'
 
 " Tools, modes, searching, navigation
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
@@ -459,18 +460,17 @@ autocmd FileType sml set commentstring=(*%s*)
 let $PATH = $PATH . ':' . expand('~/.cabal/bin')
 
 " Pretty unicode haskell symbols
-let g:haskell_conceal_wide = 1
-let g:haskell_conceal_enumerations = 1
-let hscoptions="𝐒𝐓𝐄𝐌xRtB𝔻w"
+" let g:haskell_conceal_wide = 1
+" let g:haskell_conceal_enumerations = 1
+" let hscoptions="Al𝐒𝐓𝐄𝐌xRtB𝔻w"
 
-" Use same color behind concealed unicode characters
-hi clear Conceal
+" augroup clearconceal
+"   autocmd!
+"   autocmd VimEnter * hi clear Conceal
+" augroup END
 
-" Rainbow parentheses
-augroup clearconceal
-  autocmd!
-  autocmd VimEnter * hi clear Conceal
-augroup END
+" " Use same color behind concealed unicode characters
+" hi clear Conceal
 
 " }}}
 
