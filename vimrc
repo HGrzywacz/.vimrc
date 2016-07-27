@@ -42,10 +42,11 @@ Plug 'tpope/vim-surround'
 Plug 'terryma/vim-expand-region'
 Plug 'wellle/targets.vim'
 Plug 'scrooloose/nerdcommenter'
+Plug 'vim-scripts/ReplaceWithRegister'
 
 " Tools, modes, searching, navigation
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
 Plug 'bling/vim-airline'
 Plug 'junegunn/vim-peekaboo'
 Plug 'rking/ag.vim'
@@ -59,7 +60,7 @@ Plug 'moll/vim-bbye'
 Plug 'nice/sweater'
 Plug 'altercation/vim-colors-solarized'
 Plug 'chrisbra/unicode.vim'
-Plug 'NLKNguyen/papercolor-theme'
+Plug 'vim-airline/vim-airline-themes'
 
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'kshenoy/vim-signature'
@@ -291,6 +292,8 @@ nnoremap <silent> <Leader>s :let @j=@k \| let @k=@"<CR>
 " keep cache after exiting vim
 let g:ctrlp_clear_cache_on_exit = 0
 
+nnoremap <silent> <Leader>p :CtrlPBuffer<CR>
+
 " ignore files in .gitignore
 " via: http://stackoverflow.com/a/26729140
 let g:ctrlp_user_command = [
@@ -312,10 +315,14 @@ command! H call OpenQuickReference()
 
 " }}}
 
-" Spell checking {{{
+" Spell checking and abbreviations {{{
 
 " Pressing <Space>ss will toggle and untoggle spell checking
 map <leader>ss :setlocal spell!<cr>
+
+abbr heigth height
+abbr widht width
+abbr lenght length
 
 " }}}
 
@@ -471,6 +478,8 @@ let $PATH = $PATH . ':' . expand('~/.cabal/bin')
 
 " " Use same color behind concealed unicode characters
 " hi clear Conceal
+set cole=0
+au FileType * setl cole=0
 
 " }}}
 

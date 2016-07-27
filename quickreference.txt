@@ -36,7 +36,7 @@ vim-surround
   cs'"                - change surround inside ' to "
   ds"                 - delete surrounding "
   cs'<q>              - change surrounding ' to <q></q>
-  ycsw'                - surround word with '
+  ysiw'                - surround word with '
 
 vim-expand-region
 -----------------
