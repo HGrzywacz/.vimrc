@@ -27,6 +27,7 @@ set nocompatible
 call plug#begin('~/.vim/bundle')
 
 " Movement, shortcuts
+Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'terryma/vim-multiple-cursors'
@@ -290,9 +291,10 @@ nnoremap <silent> <Leader>s :let @j=@k \| let @k=@"<CR>
 
 " CtrlP
 " keep cache after exiting vim
-let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_clear_cache_on_exit = 1
 
 nnoremap <silent> <Leader>p :CtrlPBuffer<CR>
+set hidden
 
 " ignore files in .gitignore
 " via: http://stackoverflow.com/a/26729140

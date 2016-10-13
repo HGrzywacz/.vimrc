@@ -43,16 +43,16 @@ vim-expand-region
   v                   - (VISUAL mode) expand region
   <C-v>               - (VISUAL mode) shrink region
 
+ReplaceWithRegister
+-----------------
+[count]["x]gr{motion} - replace {motion} text with the contents of register x.
+                        Especially when using the unnamed register, this is
+                        quicker than "_d{motion}P or "_c{motion}<C-R>"
+[count]["x]grr        - replace [count] lines with the contents of register x.
+                        To replace from the cursor position to the end of the
+                        line use ["x]gr$
+{Visual}["x]gr        - replace the selection with the contents of register x.
 
-chrisbra/unicode.vim
---------------------
-  :UnicodeName        - identify character under cursor
-  :SearchUnicode <a>  - search unicode table
-  :UnicodeTable
-  :Digraphs <a>       - search digraphs
-  <F4>                - transform two normal characters into digraph
-
-  C-x C-g             - (INSERT mode) trigger digraph completion
 
 Tabs:
 --------------------
@@ -69,6 +69,7 @@ Tabs:
 
   {i}gt               - ith tab
 
+
 Folds:
 --------------------
 
@@ -77,3 +78,14 @@ Folds:
   za                  - toggle fold
   zr, zR              - open one level, open all folds
   zm, zM              - close one leve, close all folds
+
+
+chrisbra/unicode.vim
+--------------------
+  :UnicodeName        - identify character under cursor
+  :SearchUnicode <a>  - search unicode table
+  :UnicodeTable
+  :Digraphs <a>       - search digraphs
+  <F4>                - transform two normal characters into digraph
+
+  C-x C-g             - (INSERT mode) trigger digraph completion
