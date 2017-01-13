@@ -48,6 +48,7 @@ Plug 'vim-scripts/ReplaceWithRegister'
 " Tools, modes, searching, navigation
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 " Plug 'Valloric/YouCompleteMe'
+Plug 'Shougo/neocomplete.vim'
 Plug 'bling/vim-airline'
 Plug 'junegunn/vim-peekaboo'
 Plug 'rking/ag.vim'
@@ -174,7 +175,7 @@ nmap <Leader><Leader> V
 
 " Autoresize split
 function! Autoresize()
-  :exec "resize " . line("$")
+  :exec "resize " . (line("$") + 1)
   :call feedkeys("zb")
 endfunction
 
@@ -284,6 +285,21 @@ let g:peekaboo_delay = 800
 " Copy default register @" to @k and save old value of @k in @j
 " via: http://vim.wikia.com/wiki/Comfortable_handling_of_registers
 nnoremap <silent> <Leader>s :let @j=@k \| let @k=@"<CR>
+
+" }}}
+
+" Buffers - deleting {{{
+"
+" http://stackoverflow.com/questions/8450919/how-can-i-delete-all-hidden-buffers
+function DeleteHiddenBuffers()
+    let tpbl=[]
+    call map(range(1, tabpagenr('$')), 'extend(tpbl, tabpagebuflist(v:val))')
+    for buf in filter(range(1, bufnr('$')), 'bufexists(v:val) && index(tpbl, v:val)==-1')
+        silent execute 'bwipeout' buf
+    endfor
+endfunction
+
+command! Bd call DeleteHiddenBuffers()
 
 " }}}
 
@@ -485,6 +501,13 @@ au FileType * setl cole=0
 
 " }}}
 
+" Lilypond {{{
+" filetype off
+" set runtimepath+=/usr/share/lilypond/current/vim
+" filetype on
+" syntax on
+"}}}
+
 " Automation on writing to file {{{
 
 " Remove trailing whitespaces and empty lines on the end of the file
@@ -511,4 +534,9 @@ function! MyLastWindow()
   endif
 endfunction
 
+"}}}
+
+" neocomplete {{{
+" https://github.com/Shougo/neocomplete.vim
+let g:neocomplete#enable_at_startup = 1
 "}}}

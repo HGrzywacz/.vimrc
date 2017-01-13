@@ -31,6 +31,8 @@ Custom shortcuts:
   C-y, S-Up           - scroll one line up relative to cursor
   C-e, S-Down         - scroll one line down relative to cursor
 
+  :Bd                 - close all hidden buffers
+
 vim-surround
 ------------------
   cs'"                - change surround inside ' to "
