@@ -44,6 +44,10 @@ Plug 'terryma/vim-expand-region'
 Plug 'wellle/targets.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'tpope/vim-repeat'
+Plug 'vim-scripts/utl.vim'
+Plug 'chrisbra/NrrwRgn'
+Plug 'tpope/vim-speeddating'
 
 " Tools, modes, searching, navigation
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }
@@ -58,8 +62,13 @@ Plug 'rhysd/devdocs.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'moll/vim-bbye'
 
+" Ultisnips
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
 " Colors, visuals
 Plug 'nice/sweater'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'altercation/vim-colors-solarized'
 Plug 'chrisbra/unicode.vim'
 Plug 'vim-airline/vim-airline-themes'
@@ -70,6 +79,9 @@ Plug 'kshenoy/vim-signature'
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+
+" Org mode
+Plug 'jceb/vim-orgmode'
 
 " Language-specific plugins
 
@@ -93,7 +105,6 @@ Plug 'othree/html5.vim', {'for': 'html'}
 
 "   Haskell
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
-Plug 'enomsg/vim-haskellConcealPlus', { 'for': 'haskell' }
 Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
 Plug 'bitc/vim-hdevtools', { 'for': 'haskell' }
 Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
@@ -208,6 +219,11 @@ nnoremap <Leader>z :<C-u>call ScrollToPercent(25)<CR>
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
+" Stay in visual mode when indenting. To not have to run gv after
+" performing an indentation.
+vnoremap < <gv
+vnoremap > >gv
+
 " }}}
 
 " History {{{
@@ -291,7 +307,7 @@ nnoremap <silent> <Leader>s :let @j=@k \| let @k=@"<CR>
 " Buffers - deleting {{{
 "
 " http://stackoverflow.com/questions/8450919/how-can-i-delete-all-hidden-buffers
-function DeleteHiddenBuffers()
+function! DeleteHiddenBuffers()
     let tpbl=[]
     call map(range(1, tabpagenr('$')), 'extend(tpbl, tabpagebuflist(v:val))')
     for buf in filter(range(1, bufnr('$')), 'bufexists(v:val) && index(tpbl, v:val)==-1')
@@ -321,7 +337,7 @@ let g:ctrlp_user_command = [
 
 " }}}
 
-" QuickReference {{{
+" QuickReference and QuickSnipsReference {{{
 
 function! OpenQuickReference()
   vs|view ~/.vim/quickreference.txt
@@ -330,6 +346,43 @@ endfunction
 
 command! QR call OpenQuickReference()
 command! H call OpenQuickReference()
+
+function! OpenQuickSnipReference(lang)
+  if a:lang ==# "Haskell"
+    vs|view ~/.vim/bundle/vim-snippets/snippets/haskell.snippets
+    set ft=snippets
+  elseif a:lang ==# "CoffeeScript"
+    vs|view ~/.vim/bundle/vim-snippets/snippets/coffee/coffee.snippets
+    set ft=snippets
+  elseif a:lang ==# "AngularCoffee"
+    vs|view ~/.vim/bundle/vim-snippets/snippets/coffee/angular_coffee.snippets
+    set ft=snippets
+  elseif a:lang ==# "JavaScript"
+    vs|view ~/.vim/bundle/vim-snippets/snippets/javascript/javascript.snippets
+    set ft=snippets
+  endif
+endfunction
+
+command! SnipsHaskell call OpenQuickSnipReference("Haskell")
+command! SnipsCoffee call OpenQuickSnipReference("CoffeeScript")
+command! SnipsAngularCoffee call OpenQuickSnipReference("AngularCoffee")
+command! SnipsJS call OpenQuickSnipReference("JavaScript")
+
+function! OpenAutoSnip()
+  let l:filetype = &filetype
+
+    if l:filetype ==# "haskell"
+      call OpenQuickSnipReference("Haskell")
+    elseif l:filetype ==# "coffee"
+      vs|view ~/.vim/bundle/vim-snippets/snippets/coffee/coffee.snippets
+      set ft=snippets
+    elseif l:filetype ==# "javascript"
+      vs|view ~/.vim/bundle/vim-snippets/snippets/javascript/javascript.snippets
+      set ft=snippets
+    endif
+endfunction
+
+command! Snips call OpenAutoSnip()
 
 " }}}
 
@@ -341,6 +394,28 @@ map <leader>ss :setlocal spell!<cr>
 abbr heigth height
 abbr widht width
 abbr lenght length
+
+" }}}
+
+" Narrow Region {{{
+
+" Open narrowed region in vertical split buffer
+let g:nrrw_rgn_vert = 1
+
+" Default width for scratch buffer
+let g:nrrw_rgn_wdth = 112
+
+" }}}
+
+" UltiSnips {{{
+
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 
 " }}}
 
@@ -502,10 +577,10 @@ au FileType * setl cole=0
 " }}}
 
 " Lilypond {{{
-" filetype off
-" set runtimepath+=/usr/share/lilypond/current/vim
-" filetype on
-" syntax on
+filetype off
+set runtimepath+=/usr/share/lilypond/current/vim
+filetype on
+syntax on
 "}}}
 
 " Automation on writing to file {{{
@@ -540,3 +615,78 @@ endfunction
 " https://github.com/Shougo/neocomplete.vim
 let g:neocomplete#enable_at_startup = 1
 "}}}
+
+" pairify {{{
+" https://www.reddit.com/r/vim/comments/5ws9tg/does_vim_have_a_plugin_using_tab_to_close_and_get/decygam/
+
+if exists('g:loaded_pairify')
+  finish
+endif
+let g:loaded_pairify = 1
+
+let g:pairs = {
+      \ "left": {
+      \   "[": "]",
+      \   "(": ")",
+      \   "{": "}",
+      \   "<": ">",
+      \   "'": "'",
+      \   '"': '"'
+      \ },
+      \ "right": {
+      \   "]": "[",
+      \   ")": "(",
+      \   "}": "{",
+      \   ">": "<",
+      \   "'": "'",
+      \   '"': '"'
+      \ }
+      \}
+
+function! s:is_compliment(char1, char2)
+  if has_key(g:pairs.left, a:char1)
+    return a:char2 == g:pairs.left[a:char1]
+  elseif has_key(g:pairs.right, a:char1)
+    return a:char2 == g:pairs.right[a:char1]
+  endif
+endfunction
+
+function! s:is_quote(char)
+  return a:char ==# "'" || a:char ==# '"'
+endfunction
+
+function! s:find_pair(string)
+  let stack = []
+  let characters = split(a:string, '\zs')
+
+  for char in reverse(characters)
+    if has_key(g:pairs.right, char)
+      if !empty(stack) && s:is_quote(char) && stack[-1] ==# char
+        call remove(stack, -1)
+        continue
+      endif
+      call add(stack, char)
+    elseif has_key(g:pairs.left, char)
+      if !empty(stack) && s:is_compliment(char, stack[-1])
+        call remove(stack, -1)
+      elseif empty(stack)
+        return g:pairs.left[char]
+      endif
+    endif
+  endfor
+
+  if empty(stack)
+    return "\t"
+  else
+    return remove(stack, 0)
+  endif
+endfunction
+
+function! s:pairify()
+  return s:find_pair(getline('.')[0:col('.')-1])
+endfunction
+
+inoremap <expr> <silent> <Plug>(pairify-complete) <SID>pairify()
+imap <C-c> <Plug>(pairify-complete)
+
+" }}}

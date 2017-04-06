@@ -19,4 +19,8 @@ syntax/*
 indent/*
 !indent/html.vim
 
+!ftplugin/
+!ftplugin/*
+ftplugin/*~
+
 !setup.sh

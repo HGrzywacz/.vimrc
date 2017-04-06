@@ -31,7 +31,12 @@ Custom shortcuts:
   C-y, S-Up           - scroll one line up relative to cursor
   C-e, S-Down         - scroll one line down relative to cursor
 
+  C-c                 - close matching bracket
+
+Buffers
+------------------
   :Bd                 - close all hidden buffers
+  <C-6>               - previous buffer
 
 vim-surround
 ------------------
