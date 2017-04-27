@@ -37,6 +37,8 @@ Buffers
 ------------------
   :Bd                 - close all hidden buffers
   <C-6>               - previous buffer
+  :Lock, :Unlock      - set buffer to read-only
+
 
 vim-surround
 ------------------

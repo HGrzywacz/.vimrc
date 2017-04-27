@@ -175,6 +175,7 @@ nnoremap <silent> <C-j> <c-w>j
 map <silent> <S-Up> <C-y>
 map <silent> <S-Down> <C-e>
 
+
 " mapleader
 let mapleader = "\<Space>"
 
@@ -191,6 +192,18 @@ function! Autoresize()
 endfunction
 
 command! AR call Autoresize()
+
+" Make buffer read-only
+function! LockBuffer()
+  :exec "set nomodifiable"
+endfunction
+
+function! UnlockBuffer()
+  :exec "set modifiable"
+endfunction
+
+command! Lock call LockBuffer()
+command! Unlock call UnlockBuffer()
 
 " via: http://stackoverflow.com/a/3102890
 " improved by me
@@ -581,6 +594,11 @@ filetype off
 set runtimepath+=/usr/share/lilypond/current/vim
 filetype on
 syntax on
+
+augroup filetypedetect
+    au BufRead,BufNewFile *.lytex setfiletype tex
+augroup END
+
 "}}}
 
 " Automation on writing to file {{{
