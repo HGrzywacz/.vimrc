@@ -1,6 +1,6 @@
 " General {{{
 " Use indentation for folds
-set foldmethod=indent
+" set foldmethod=indent
 set foldnestmax=5
 set foldlevelstart=99
 set foldcolumn=0
@@ -61,6 +61,7 @@ Plug 'haya14busa/incsearch.vim'
 Plug 'rhysd/devdocs.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'moll/vim-bbye'
+Plug 'embear/vim-localvimrc'
 
 " Ultisnips
 Plug 'SirVer/ultisnips'
@@ -108,9 +109,6 @@ Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
 Plug 'bitc/vim-hdevtools', { 'for': 'haskell' }
 Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
-
-" Python
-Plug 'ehamberg/vim-cute-python'
 
 call plug#end()
 
@@ -178,6 +176,7 @@ map <silent> <S-Down> <C-e>
 
 " mapleader
 let mapleader = "\<Space>"
+let maplocalleader = "\<Space>"
 
 " <Space>w to save
 nnoremap <Leader>w :w<CR>
@@ -196,10 +195,12 @@ command! AR call Autoresize()
 " Make buffer read-only
 function! LockBuffer()
   :exec "set nomodifiable"
+  :exec "set readonly"
 endfunction
 
 function! UnlockBuffer()
   :exec "set modifiable"
+  :exec "set noreadonly"
 endfunction
 
 command! Lock call LockBuffer()
@@ -590,6 +591,7 @@ au FileType * setl cole=0
 " }}}
 
 " Lilypond {{{
+
 filetype off
 set runtimepath+=/usr/share/lilypond/current/vim
 filetype on
@@ -600,6 +602,24 @@ augroup filetypedetect
 augroup END
 
 "}}}
+
+" Xtend {{{
+
+augroup filetypedetect
+    au BufRead,BufNewFile *.xtend setfiletype xtend
+augroup END
+
+"}}}
+
+" ABAP {{{
+
+function! ConvertToSnakeCase()
+  :silent! s#\(\<\u\l\+\|\l\+\)\(\u\)#\l\1_\l\2#g
+endfunction
+
+command! SnakeCase call ConvertToSnakeCase()
+
+" }}}
 
 " Automation on writing to file {{{
 
@@ -706,5 +726,18 @@ endfunction
 
 inoremap <expr> <silent> <Plug>(pairify-complete) <SID>pairify()
 imap <C-c> <Plug>(pairify-complete)
+
+" }}}
+
+" local .vimrc files {{{
+" https://www.reddit.com/r/vim/comments/5ws9tg/does_vim_have_a_plugin_using_tab_to_close_and_get/decygam/
+"https://github.com/embear/vim-localvimrc
+
+" Allow external, project-specific .vimrc files
+set exrc
+set secure
+
+" whitelist all local vimrc (.lvimrc) files in users project foo and bar
+let g:localvimrc_whitelist=['/home/hgrzywacz/workspace/*/.*', '/home/hgrzywacz/workbench/*/.*']
 
 " }}}

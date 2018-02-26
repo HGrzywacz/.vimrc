@@ -98,3 +98,16 @@ chrisbra/unicode.vim
   <F4>                - transform two normal characters into digraph
 
   C-x C-g             - (INSERT mode) trigger digraph completion
+
+Digraphs:
+--------------------
+
+Ctrl + K {char1} {char2}
+
+♭ Mb 266D 9837 MUSIC FLAT SIGN
+♮ Mx 266E 9838 MUSIC NATURAL SIGN
+♯ MX 266F 9839 MUSIC SHARP SIGN
+
+♩   Md 2669 9833 QUARTER NOTE `
+♪   M8 266A 9834 EIGHTH NOTE `
+♫  M2 266B 9835 BEAMED EIGHTH NOTES
