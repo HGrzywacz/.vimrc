@@ -4,6 +4,7 @@
 set foldnestmax=5
 set foldlevelstart=99
 set foldcolumn=0
+set showcmd
 
 " Fold this vimrc by categories
 augroup vimrcFold
@@ -351,7 +352,7 @@ let g:ctrlp_user_command = [
 
 " }}}
 
-" QuickReference and QuickSnipsReference {{{
+" QuickReference and QuickSnipsReference , Tecza {{{
 
 function! OpenQuickReference()
   vs|view ~/.vim/quickreference.txt
@@ -397,6 +398,15 @@ function! OpenAutoSnip()
 endfunction
 
 command! Snips call OpenAutoSnip()
+
+function! Tecza()
+	vnew|r !tecza
+	silent %s/ -/\r\t- /g
+	setlocal bt=nofile bh=wipe nobl noswf ro
+endfunction
+
+command! Tecza call Tecza()
+command! T call Tecza()
 
 " }}}
 
@@ -738,6 +748,6 @@ set exrc
 set secure
 
 " whitelist all local vimrc (.lvimrc) files in users project foo and bar
-let g:localvimrc_whitelist=['/home/hgrzywacz/workspace/*/.*', '/home/hgrzywacz/workbench/*/.*']
+let g:localvimrc_whitelist=['/home/hgrzywacz/workspace/*/.*', '/home/hgrzywacz/workbench/*/.*', '/home/hgrzywacz/Desktop/*']
 
 " }}}
