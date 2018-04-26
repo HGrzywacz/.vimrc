@@ -65,8 +65,8 @@ Plug 'moll/vim-bbye'
 Plug 'embear/vim-localvimrc'
 
 " Ultisnips
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
+" Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets'
 
 " Colors, visuals
 Plug 'nice/sweater'
@@ -76,11 +76,10 @@ Plug 'chrisbra/unicode.vim'
 Plug 'vim-airline/vim-airline-themes'
 
 Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'kshenoy/vim-signature'
 
 " Git
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
+" Plug 'tpope/vim-fugitive'
+" Plug 'airblade/vim-gitgutter'
 
 " Org mode
 Plug 'jceb/vim-orgmode'
@@ -252,7 +251,51 @@ if exists("&undodir")
 endif
 
 " Gundo
-nnoremap <F5> :GundoToggle<CR>
+" nnoremap <F5> :GundoToggle<CR>
+
+" }}}
+
+" Spotify {{{
+
+function! SpotifyPlayPause()
+  :silent ! dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+  :redraw!
+endfunction
+
+function! SpotifyStop()
+  :silent ! dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop
+  :redraw!
+endfunction
+
+function! SpotifyPrevious()
+  :silent ! dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+  :redraw!
+endfunction
+
+function! SpotifyNext()
+  :silent ! dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+  :redraw!
+endfunction
+
+command! SpotifyPlayPause call SpotifyPlayPause()
+command! S call SpotifyPlayPause()
+
+command! SpotifyStop call SpotifyStop()
+command! Sn call SpotifyStop()
+command! SS call SpotifyStop()
+
+command! SpotifyNext call SpotifyNext()
+command! Sn call SpotifyNext()
+command! SN call SpotifyNext()
+
+command! SpotifyPrevious call SpotifyPrevious()
+command! Sp call SpotifyPrevious()
+command! SP call SpotifyPrevious()
+
+nnoremap <silent> <F5> :call SpotifyPlayPause()<CR>
+nnoremap <silent> <F6> :call SpotifyStop()<CR>
+nnoremap <silent> <F7> :call SpotifyPrevious()<CR>
+nnoremap <silent> <F8> :call SpotifyNext()<CR>
 
 " }}}
 
@@ -446,8 +489,8 @@ let g:UltiSnipsEditSplit="vertical"
 " Git {{{
 
 " disable gitgutter by default
-let g:gitgutter_enabled = 0
-nnoremap <Leader>g :GitGutterToggle<CR>
+" let g:gitgutter_enabled = 0
+" nnoremap <Leader>g :GitGutterToggle<CR>
 
 " }}}
 
