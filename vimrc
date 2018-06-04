@@ -544,6 +544,8 @@ endfunction "}}}
 
 command! JSLint call JSLint()
 
+map <Leader>q yiwi'pa', 
+
 " }}}
 
 " CoffeeScript {{{
